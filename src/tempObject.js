@@ -1,34 +1,22 @@
 import * as THREE from 'three';
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Controls, useControl } from "react-three-gui";
+
 
 const tempObject = new THREE.Object3D();
-const blue = new THREE.Color("hsl(218, 24%, 15%)");
+const blue = new THREE.Color("white");
 
 const data = Array.from({ length: 25000 }, () => ({ color: "pink", scale: 1 }));
 
-export function Boxes({ datas }) {
+export function Boxes({ datas , animation}) {
 
     const [hovered, set] = useState();
-
-    const [animation, setAnimation] = useState(0);
 
     const meshRef = useRef();
     const prevRef = useRef();
 
     useEffect(() => void (prevRef.current = hovered), [hovered]);
-
-    window.onscroll = function () {
-        scrollRotate();
-    };
     
-    function scrollRotate() {
-        console.log(window.pageYOffset/2 )
-        setAnimation(window.pageYOffset/2 )
-        
-    }
-
     useFrame((state) => {
         let i = 0;
         for (let x = 0; x < 50; x++)
@@ -41,7 +29,7 @@ export function Boxes({ datas }) {
                         //console.log(datas[id].color)
                         tempObject.position.y = 0.5;
                         tempObject.scale.y = 2;
-                        meshRef.current.setColorAt(id, new THREE.Color(datas[id].color));
+                        meshRef.current.setColorAt(id, new THREE.Color("black"));
 
                     }
                     else if (datas[id].type === 0 && datas[id].color === "SkyBlue") {
@@ -89,8 +77,8 @@ export function Boxes({ datas }) {
         <instancedMesh
             ref={meshRef}
             // y scroll variabile
-            position={[-animation/40, -20+animation/40, -animation/40]}
-            rotation={[animation/200, 9-animation/200, 0.1]}
+            position={[-animation/10, -14-animation/10, -20+animation/10]}
+            rotation={[-animation/200, 5+animation/200, 0.6+animation/200 ]}
             args={[null, null, 5000]}
             castShadow={true}
             receiveShadow={true}

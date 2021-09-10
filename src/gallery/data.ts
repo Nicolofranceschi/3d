@@ -1,0 +1,16 @@
+export default [
+  { css: 'UX', height: 150 , color: '#163F58' , gradient: "#F4B51B" },
+  { css: 'UI', height: 300 , color: '#7AD9C4' , gradient: "#230070" },
+  { css: 'WEBSITE', height: 300  , color: '#FE6F26' , gradient: "#2F2F2F" },
+  { css: 'e-COMMERCE', height: 300 , color: '#590F2E' , gradient: "#FFA67E" },
+  { css: 'LOVE', height: 300 , color: '#5B0821' , gradient: "#00DCD6" },
+  { css: 'PASSION', height: 300 , color: '#F69C1B' , gradient: "#040E50"},
+  { css: 'APPLICATION', height: 200 , color: '#9FAECE' , gradient: "#0F387A" },
+  { css: 'WEB', height: 300 , color: '#7887DE' , gradient: "#ABDBE6" },
+  { css: 'LANDIGPAGE', height: 200 , color: '#367BF2' , gradient: "#FDC72D" },
+  { css: 'REACT', height: 400 , color: '#4F4546' , gradient: "#ECC7B2" },
+  { css: 'REALTIME', height: 200 , color: '#C698CE' , gradient: "#60067E" },
+  { css: 'MONGODB', height: 150 , color: '#9BECE1' , gradient: "#00886F" },
+  { css: 'TREE.JS', height: 400 , color: '#0228A7' , gradient: "#C3C015" },
+  { css: 'PWA', height: 200  , color: '#791435' , gradient: "#F9838E"},
+]

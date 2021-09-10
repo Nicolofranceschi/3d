@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap');
+@import url('https://rsms.me/inter/inter.css');
+
 * {
   box-sizing: border-box;
 }
@@ -9,24 +13,44 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  cursor: url(./mouse.png),pointer;
+  background-color: #f0f0f0;
 }
 
-body {
-  background: #f0f0f0;
+.home {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
 
-div{
-  height: 100vh;
-  
+.info{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+}
+
+a{
+
+  color: black;
+  text-decoration: none;
 }
 
 
-h1{
- position: absolute;
- top: 10vh;
- left: 2vh;  
- font-size: 50px;
- font-weight: bold;
- font-family: Trebuchet MS, sans-serif;
+.h2 {
+  margin-left: 10px;
+  font-size: 1em;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
 }
+
+
 
