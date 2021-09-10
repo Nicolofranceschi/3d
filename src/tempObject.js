@@ -72,13 +72,15 @@ export function Boxes({ datas , animation}) {
 
     }, [datas]);
 
+    const positionValue = 20;
+    const rotationValue = 300;
 
     return (
         <instancedMesh
             ref={meshRef}
             // y scroll variabile
-            position={[-animation/10, -14-animation/10, -20+animation/10]}
-            rotation={[-animation/200, 5+animation/200, 0.6+animation/200 ]}
+            position={[-animation/positionValue, -14-animation/positionValue, -20+animation/positionValue]}
+            rotation={[-animation/rotationValue, 5+animation/rotationValue, 0.6+animation/rotationValue ]}
             args={[null, null, 5000]}
             castShadow={true}
             receiveShadow={true}

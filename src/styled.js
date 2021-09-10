@@ -10,7 +10,7 @@ export const Sala = styled(Canvas)`
   width: 50%;
   
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     height: 70%;
     width: 100%;
   }
@@ -20,7 +20,7 @@ export const Img = styled(Lottie)`
   border-radius: 20px;
   height: 70%;
   display: block;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     display: none;
   }
   :hover{
@@ -32,13 +32,14 @@ export const Img = styled(Lottie)`
 export const SalaContainer = styled.div`
   height: 100vh;
   width: 100vw;
+  padding: 0 6rem;
   display: flex;
   background-color: #f0f0f0;
   flex-direction: row;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column;
     height: 100vh;
-     width: 100vw;
+    width: 100vw;
   }
 `;
 
@@ -49,7 +50,7 @@ export const TextContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column;
     height: 90vh;
      width: 100vw;
@@ -63,7 +64,7 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column;
     height: 200vh;
      width: 100vw;
@@ -101,12 +102,13 @@ export const Div = styled.div`
 `;
 
 export const Form = styled.div`
-  height: 20vh;
   width: 100vw;
   background-color: #2F2F2F;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 6rem 3rem;
+  color: #f0f0f0;
 `;
 
 export const Button = styled(PopupButton)`
@@ -118,35 +120,6 @@ export const Button = styled(PopupButton)`
   font-size: 1em;
   border: none;
 `;
-
-export const Npm = styled.div`
-  height: 10vh;
-  width: 90vW;
-  margin-top: -20px;
-  max-width: 600px;
-  background-color: black;
-  display: flex;
-  border-radius: 20px;
-  align-items: center;
-  p{
-      color: white;
-      padding-left: 10px;
-      font-size: 0.8em;
-        letter-spacing: -0.075em;
-        white-space: nowrap;
-        font-family: inter;
-  }
-  span{
-    color: fuchsia;
-      
-      font-size: 1em;
-        letter-spacing: -0.075em;
-        white-space: nowrap;
-        font-family: inter;
-  }
-`;
-
-
 
 export const WebDiv = styled(web.div)`
   height: 100vh;
@@ -166,11 +139,10 @@ export const WebHome = styled(web.div)`
   justify-content: center;
   flex-direction: column;
   margin:0;
-  @media screen and (max-width: 600px) {
-        height: 30%;
-        width: 100%;
-  
-}
+  @media screen and (max-width: 800px) {
+    height: 30%;
+    width: 100%;
+  }
 `;
 
 export const H1 = styled(web.h1)`
@@ -181,15 +153,23 @@ export const H1 = styled(web.h1)`
   letter-spacing: -0.075em;
   white-space: nowrap;
   font-family: inter;
+  display: flex;
+  align-items: center;
+  img {
+    margin-left: 20px;
+  }
 `;
 
 export const H2 = styled(web.h2)`
   margin: 0;
   padding: 0;
-  font-size: 0.8em;
+  font-size: 1rem;
   letter-spacing: -0.075em;
   white-space: nowrap;
   font-family: inter;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: normal;
 `;
 
 export const UP = styled(web.p)`
@@ -206,7 +186,7 @@ export const UP = styled(web.p)`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
         height: 30%;
         width: 100%;
         padding-top: 20vh;
@@ -221,7 +201,7 @@ export const Title = styled.div`
  align-items: center;
  justify-content: center;
  flex-direction: column;
- @media screen and (max-width: 600px) {
+ @media screen and (max-width: 800px) {
     width: 100%;
   
 }
@@ -246,12 +226,12 @@ export const P = styled.div`
  font-size: 40px;
  font-weight: bold;
  font-family: inter;
- p{
-    font-size: 2vh;
+ p {
+    font-size: 1rem;
     font-weight: 400;
  }
  span{
-    font-size: 2vh;
+    font-size: 1rem;
     color: blueviolet;
  }
 `;
@@ -267,3 +247,13 @@ export const Text = styled.p`
  font-family: inter;
 `;
 
+export const Table = styled.table`
+  td, th {
+    text-align: left;
+    padding: 0.5em 2rem;
+  }
+  th {
+    border-bottom: 1px solid #444;
+    padding: 1rem 2rem;
+  }
+`;

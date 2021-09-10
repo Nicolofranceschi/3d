@@ -1,2 +1,4 @@
 /node_modules
 /thumbnail.png
+/build
+.firebase
