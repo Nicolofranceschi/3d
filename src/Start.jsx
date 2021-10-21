@@ -56,16 +56,18 @@ function Model({ open, hinge, setOpen, ...props }) {
   )
 }
 
-export default function Start({ open, setOpen }) {
+export default function Start({ open, setOpen , height , width}) {
   // This flag controls open state, alternates between true & false
 
 
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) })
 
+  const trigger = () => {return width > 800 ? 0 : -height/2}
+
   return (
     <Controller>
-      <Scene duration={550} pin triggerHook={0}>
+      <Scene duration={height} pin triggerHook={0}>
         <WebDiv style={{ background: props.open.to([0, 5], ['#f0f0f0', '#f0f0f0']) }}>
           <SalaContainer>
             <WebHome style={{ opacity: open ? "0" : "1", display: open ? "none" : "flex" }}>
@@ -79,8 +81,6 @@ export default function Start({ open, setOpen }) {
             <UP style={{ opacity: open ? "1" : "0", display: open ? "flex" : "none" }}>
               Parte tutto <br /> da qui<br />
             </UP>
-
-
             <Sala dpr={[1, 2]} camera={{ position: [0, -5, 0], fov: 35 }}>
               <three.pointLight position={[10, 10, 10]} intensity={1.5} />
               <Suspense fallback={null}>

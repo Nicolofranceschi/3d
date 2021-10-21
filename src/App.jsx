@@ -5,8 +5,9 @@ import './styles.css'
 import { Boxes } from './tempObject'
 import { getUserDocument } from './firebae'
 import { useEffect, useState, useRef } from 'react'
-import { SagraBot, Sala, SalaContainer, Form, Title, Button, Text, Npm, Container, Azienda, Desc, TextContainer, Img, P, Table } from "./styled"
+import { SagraBot, Sala, SalaContainer, Form, Title,Flex, Button, Text, Npm, Container, Azienda, Desc, TextContainer, Img, P, Table } from "./styled"
 import { useWindowSize } from "./useWindowsSize";
+import { useForm, ValidationError } from '@formspree/react';
 import Start from "./Start";
 import bimbo from "./animation.json"
 import Masonry from "./gallery"
@@ -15,15 +16,19 @@ import { Controller, Scene } from 'react-scrollmagic';
 import logo from './assets/logo.png';
 
 const SALEUID = 'sala';
+let a=0;
+let temp=0;
 
 export default function App() {
 
     const [datas, setDatas] = useState();
     const { height, width } = useWindowSize();
 
-    const [offset, setOffset] = useState(0);
-
     const sagra = useRef()
+    const [state, handleSubmit] = useForm("xoqyrqyp");
+    if (state.succeeded) {
+        console.log("Thanks for joining!");
+    }
 
     useEffect(() => {
         async function doStuff() {
@@ -38,14 +43,7 @@ export default function App() {
         doStuff();
     }, []);
 
-    useEffect(() => {
-        if (!sagra.current) return;
-        const bodyRect = { top: 0 };
-        // const bodyRect = document.body.getBoundingClientRect();
-        const elemRect = sagra.current?.getBoundingClientRect();
-        setOffset(elemRect.top - bodyRect.top);
-    }, [sagra.current]);
-
+    
     const [open, setOpen] = useState(false)
     const [animation, setAnimation] = useState(0);
 
@@ -54,8 +52,14 @@ export default function App() {
         scrollRotate();
     };
     function scrollRotate() {
-        // console.log('Element is ' + offset + ' vertical pixels from <body>');
-        if (window.pageYOffset > offset - height) setAnimation(window.pageYOffset / 2 - offset / 2)
+        const bodyRect = document.body.getBoundingClientRect();
+        const elemRect = sagra.current?.getBoundingClientRect();
+        const offset = elemRect.top - bodyRect.top;
+        if (window.pageYOffset > offset - height/2) {
+            a=temp<window.pageYOffset ? a+1 : a-1;
+            setAnimation(a)
+            temp = window.pageYOffset;
+        }else a=0;
     }
 
     function scrollOpen() {
@@ -65,11 +69,9 @@ export default function App() {
 
     if (datas) return (
         <>
-            <Start open={open} setOpen={setOpen} ></Start>
+        
+            <Start open={open} height={height} width={width} setOpen={setOpen} ></Start>
             <Azienda>
-                {/* <Npm>
-                    <p>@MacBook-Pro-di-Nicolo pineapp % <span> npm </span> start</p>
-                </Npm> */}
                 <TextContainer>
                     <Img animationData={bimbo} ></Img>
                     <Title>
@@ -88,7 +90,7 @@ export default function App() {
             <Masonry></Masonry>
             <Controller>
 
-                <Scene duration={600} pin triggerHook={0}>
+                <Scene duration={1200} pin triggerHook={0}>
                     <SalaContainer >
                         <Title>
                             <SagraBot ref={sagra}>SAGRABOT</SagraBot>
@@ -118,9 +120,9 @@ export default function App() {
                             <span style={{ color: "orange" }}>REACT,FIREBASE</span>
                             <p>Prenota online con con sagrabot con la nuova UI 2D<br /><br />
 
-                                Passa anche tu a sagrabot e tiene sotto controllo l afflusso di persone nella tua sagra<br /><br />garantendo il distanziamaneto con la funzione Posto Covid<br />
+                                Passa anche tu a sagrabot e tiene sotto controllo l'afflusso di persone nella tua sagra<br /><br />garantendo il distanziamento con la funzione Posto Covid<br /><br />
 
-                                Goditi la piacevole interfaccia di sagrabot per gestire il tuo client ache quando è al tavolo con la funzione cassa e genera ricevuta</p></P>
+                                Goditi la piacevole interfaccia di sagrabot per gestire il tuo cliente anche ache quando è al tavolo con la funzione cassa e genera ricevuta</p></P>
                     </Title>
                     <Gira></Gira>
                 </Container>
@@ -136,21 +138,25 @@ export default function App() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Paolo Franceschi</td>
+                            <td>per informazioni</td>
                             <td>Nicolò Franceschi</td>
                         </tr>
                         <tr>
-                            <td>3334445556</td>
-                            <td>2223334445</td>
+                            <td>contattare</td>
+                            <td>+39 345 513 2071</td>
                         </tr>
                         <tr>
-                            <td>test@gmail.com</td>
-                            <td>test2@gmail.com</td>
+                            <td>info@pineappsrl.com</td>
+                            <td>info@pineappsrl.com</td>
                         </tr>
                     </tbody>
                 </Table>
-                <Button id="v2asF1lI">CONTATTACI</Button>
-                <img src={logo} style={{ height: '70px' }}/>
+                <Flex>
+                <img src={logo} style={{ height: '70px'  , margin: "1rem"}}/>
+                <p>PineApp srl</p>
+                <p>VIA APPIA, 31,<br/> 40026, Imola, Bologna</p>
+                <p>P.iva: 00835181207</p>
+                </Flex>
             </Form>
 
         </>

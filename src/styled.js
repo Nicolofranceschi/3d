@@ -32,14 +32,13 @@ export const Img = styled(Lottie)`
 export const SalaContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  padding: 0 6rem;
+  padding: 0 2rem;
   display: flex;
   background-color: #f0f0f0;
   flex-direction: row;
   @media screen and (max-width: 800px) {
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
+    padding: 0;
   }
 `;
 
@@ -109,6 +108,10 @@ export const Form = styled.div`
   align-items: center;
   padding: 6rem 3rem;
   color: #f0f0f0;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    padding: 6rem 3rem;
+  }
 `;
 
 export const Button = styled(PopupButton)`
@@ -119,11 +122,13 @@ export const Button = styled(PopupButton)`
   font-weight: bold;
   font-size: 1em;
   border: none;
+  margin: 3rem;
 `;
 
 export const WebDiv = styled(web.div)`
   height: 100vh;
   width: 100vw;
+  padding: 0;
   background-color: black;
   display: flex;
   overflow: hidden;
@@ -236,6 +241,20 @@ export const P = styled.div`
  }
 `;
 
+export const Flex = styled.div`
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ font-size: 1rem;
+ font-family: inter;
+ p {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+ }
+`;
+
 export const Text = styled.p`
  display: flex;
  align-items: center;
@@ -251,9 +270,16 @@ export const Table = styled.table`
   td, th {
     text-align: left;
     padding: 0.5em 2rem;
+    font-size: 1rem;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+  font-family: inter;
+  margin-top: 20px;
+  font-weight: normal;
   }
   th {
     border-bottom: 1px solid #444;
     padding: 1rem 2rem;
+    font-size: 1.5rem;
   }
 `;
